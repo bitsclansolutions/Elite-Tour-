@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2139,6 +2140,188 @@ footer   { padding-top: 72px; padding-bottom: 36px; }
   body{padding-bottom:70px}
   .consult-btns{flex-direction:column}
 }
+
+/* ═══════════════════════════════════════
+   SERVICE BANNERS — Insurance + Visa
+═══════════════════════════════════════ */
+.svc-banners{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  margin:0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.svc-banner{
+  position:relative;
+  min-height:360px;
+  overflow:hidden;
+  display:flex;align-items:center;
+  padding:56px 0;
+  cursor:pointer;
+  text-decoration:none;
+}
+.svc-banner:hover .svc-img{transform:scale(1.06)}
+.svc-banner:hover .svc-cta-arrow{transform:translateX(6px)}
+
+/* Background image layer */
+.svc-img{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transition:transform .6s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Gradient overlay — from left on banner-a, from right on banner-b */
+.svc-banner--ins .svc-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(28,20,0,.92) 0%,
+    rgba(28,20,0,.78) 45%,
+    rgba(28,20,0,.30) 80%,
+    transparent 100%
+  );
+}
+.svc-banner--visa .svc-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to left,
+    rgba(28,20,0,.92) 0%,
+    rgba(28,20,0,.78) 45%,
+    rgba(28,20,0,.30) 80%,
+    transparent 100%
+  );
+}
+
+/* Thin gold divider between banners */
+.svc-banner--ins::after{
+  content:'';
+  position:absolute;top:0;right:0;bottom:0;
+  width:1px;
+  background:linear-gradient(to bottom,transparent,rgba(155,111,19,.4),transparent);
+  z-index:5;
+}
+
+/* Content */
+.svc-content{
+  position:relative;z-index:2;
+  padding:0 56px;
+  display:flex;flex-direction:column;
+  max-width:460px;
+  width:100%;
+}
+.svc-banner--visa .svc-content{
+  margin-left:auto;
+  margin-right:0;
+  text-align:right;
+  align-items:flex-end;
+}
+
+.svc-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(155,111,19,.25);
+  border:1px solid rgba(155,111,19,.45);
+  border-radius:100px;
+  padding:4px 12px 4px 8px;
+  margin-bottom:14px;
+  width:fit-content;
+}
+.svc-pill-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--gold-lt);flex-shrink:0;
+}
+.svc-pill-txt{
+  font-family:var(--pop);
+  font-size:9.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+}
+.svc-title{
+  font-family:var(--serif);
+  font-size:clamp(22px,2.6vw,34px);
+  font-weight:300;
+  color:#fff;
+  line-height:1.1;
+  letter-spacing:.01em;
+  margin-bottom:10px;
+}
+.svc-title em{
+  font-style:italic;
+  color:var(--gold-lt);
+}
+.svc-desc{
+  font-family:var(--pop);
+  font-size:13px;font-weight:300;
+  color:rgba(255,255,255,.6);
+  line-height:1.7;
+  margin-bottom:16px;
+  max-width:340px;
+}
+.svc-banner--visa .svc-desc{max-width:320px}
+
+/* Featurettes — small icon list */
+.svc-features{
+  display:flex;gap:14px;flex-wrap:wrap;
+  margin-bottom:18px;
+}
+.svc-banner--visa .svc-features{justify-content:flex-end}
+.svc-feat{
+  display:flex;align-items:center;gap:6px;
+  font-family:var(--pop);font-size:11px;font-weight:500;
+  color:rgba(255,255,255,.65);
+}
+.svc-feat svg{
+  width:12px;height:12px;
+  stroke:var(--gold-lt);fill:none;
+  stroke-width:2.5;stroke-linecap:round;flex-shrink:0;
+}
+
+/* CTA button */
+.svc-cta{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--gold);
+  color:#fff;
+  border-radius:100px;
+  padding:12px 24px;
+  font-family:var(--pop);
+  font-size:12px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  width:fit-content;
+  flex-shrink:0;
+  margin-top:4px;
+  transition:background .2s,box-shadow .2s,transform .2s;
+  box-shadow:0 4px 16px rgba(155,111,19,.4);
+  text-decoration:none;
+  white-space:nowrap;
+}
+.svc-cta:hover{background:var(--gold2);box-shadow:0 6px 24px rgba(155,111,19,.55)}
+.svc-cta-arrow{
+  transition:transform .25s;
+}
+.svc-cta svg{
+  width:13px;height:13px;
+  stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .svc-banners{grid-template-columns:1fr}
+  .svc-banner{min-height:320px;padding:48px 0}
+  .svc-banner--ins::after{display:none}
+  .svc-content{padding:0 32px;max-width:100%;width:100%}
+  .svc-banner--visa .svc-content{margin-left:0;text-align:left;align-items:flex-start}
+  .svc-banner--visa .svc-overlay{
+    background:linear-gradient(to right,rgba(28,20,0,.9) 0%,rgba(28,20,0,.65) 60%,transparent 100%);
+  }
+  .svc-banner--visa .svc-features{justify-content:flex-start}
+}
+@media(max-width:600px){
+  .svc-banner{min-height:280px;padding:40px 0}
+  .svc-content{padding:0 22px}
+  .svc-title{font-size:clamp(20px,6vw,26px)}
+  .svc-desc{display:none}
+  .svc-features{gap:10px}
+}
 </style>
 </head>
 <body>
@@ -3357,6 +3540,60 @@ footer   { padding-top: 72px; padding-bottom: 36px; }
 </div>
 
 
+
+
+<!-- ── SERVICE BANNERS — Travel Insurance + Passport & Visa ── -->
+<div class="svc-banners">
+
+  <!-- Banner A: Travel Insurance -->
+  <a href="https://eliteturkeytours.com/travel-insurance/" class="svc-banner svc-banner--ins" aria-label="Travel Insurance">
+    <!-- Istanbul Grand Bazaar / travel documents feel -->
+    <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=90');background-position:center"></div>
+    <div class="svc-overlay"></div>
+    <div class="svc-content">
+      <div class="svc-pill">
+        <div class="svc-pill-dot"></div>
+        <span class="svc-pill-txt">Travel Protection</span>
+      </div>
+      <h2 class="svc-title">Travel with<br><em>Full Confidence</em></h2>
+      <p class="svc-desc">Comprehensive travel insurance for every journey — medical emergencies, trip cancellations, lost luggage and more. Covered from departure to return.</p>
+      <div class="svc-features">
+        <span class="svc-feat"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Medical cover</span>
+        <span class="svc-feat"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Trip cancellation</span>
+        <span class="svc-feat"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 24/7 assistance</span>
+      </div>
+      <span class="svc-cta">
+        Get Insured
+        <span class="svc-cta-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </span>
+    </div>
+  </a>
+
+  <!-- Banner B: Passport & Visa -->
+  <a href="https://cibtvisas.com/?login=eliteturkeytours" target="_blank" rel="noopener" class="svc-banner svc-banner--visa" aria-label="Passport and Visa Services">
+    <!-- Airport / boarding pass feel -->
+    <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1200&q=90');background-position:center"></div>
+    <div class="svc-overlay"></div>
+    <div class="svc-content">
+      <div class="svc-pill">
+        <div class="svc-pill-dot"></div>
+        <span class="svc-pill-txt">Visa Services</span>
+      </div>
+      <h2 class="svc-title"><em>Passport</em> &amp;<br>Visa Assistance</h2>
+      <p class="svc-desc">We facilitate your passport renewals and visa applications for every destination we operate — fast, reliable, and stress-free from start to stamp.</p>
+      <div class="svc-features">
+        <span class="svc-feat"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Visa processing</span>
+        <span class="svc-feat"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Passport renewal</span>
+        <span class="svc-feat"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Fast-track service</span>
+      </div>
+      <span class="svc-cta">
+        Apply Now
+        <span class="svc-cta-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </span>
+    </div>
+  </a>
+
+</div>
 
 <!-- ARTICLES — 3-column equal grid, place images -->
 <section class="articles reveal">
