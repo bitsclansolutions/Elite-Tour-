@@ -1923,6 +1923,7 @@ html { scroll-padding-top: 62px; }
   .s-title { color: #000; }
 }
 
+/* ═══════════════════════════════════════
    All section padding, typography, spacing
    and card styles locked to one system
 ═══════════════════════════════════════ */
@@ -2051,7 +2052,7 @@ footer   { padding-top: 72px; padding-bottom: 36px; }
 .why-cards,
 .cats-grid,
 .mice-grid,
-.reviews-grid,
+.reviews-grid { gap: 24px; }
 
 /* ── 7. RESPONSIVE TOKEN OVERRIDE ────── */
 @media (max-width: 1200px) {
@@ -2333,7 +2334,7 @@ footer   { padding-top: 72px; padding-bottom: 36px; }
 <div class="mob-nav" id="mobNav">
   <a href="#destinations" class="mob-link">Destinations</a>
   <a href="#cats" class="mob-link">Tour Categories</a>
-  <a href="#" class="mob-link">Inspriation</a>
+  <a href="#" class="mob-link">Inspiration</a>
   <a href="#mice" class="mob-link">MICE</a>
   <a href="#reviews" class="mob-link">Reviews</a>
   <a href="#contact" class="mob-link">Contact Us</a>
@@ -2444,7 +2445,7 @@ footer   { padding-top: 72px; padding-bottom: 36px; }
     </li>
     <li><a href="#">Inspiration</a></li>
     <li>
-      <a href="#mice">Mice <span class="arr">▾</span></a>
+      <a href="#mice">MICE <span class="arr">▾</span></a>
       <div class="mega">
         <a href="https://eliteturkeytours.com/meetingsevents/"><span class="mini-icon">🎤</span> Meetings &amp; Events</a>
         <a href="https://eliteturkeytours.com/incentive/"><span class="mini-icon">🏆</span> Incentive</a>
@@ -2483,7 +2484,7 @@ footer   { padding-top: 72px; padding-bottom: 36px; }
 <!-- Inline search panel (slides down from nav) -->
 <div id="searchPanel" style="position:sticky;top:0;z-index:299;background:var(--blue);padding:0 48px;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.8,.2,1),padding .35s">
   <div style="display:flex;gap:0;align-items:stretch;padding:10px 0">
-    <input id="siteSearch" placeholder="Search destinations, tours, activities…" style="flex:1;padding:12px 18px;border:1.5px solid rgba(42,26,8,.2);border-right:none;border-radius:var(--r) 0 0 var(--r);background:rgba(255,255,255,.4);color:var(--navy);font-family:var(--pop);font-size:14px;outline:none">
+    <input type="text" id="siteSearch" placeholder="Search destinations, tours, activities…" style="flex:1;padding:12px 18px;border:1.5px solid rgba(42,26,8,.2);border-right:none;border-radius:var(--r) 0 0 var(--r);background:rgba(255,255,255,.4);color:var(--navy);font-family:var(--pop);font-size:14px;outline:none">
     <button onclick="document.getElementById('searchPanel').style.maxHeight='0';document.getElementById('searchPanel').style.paddingTop='0';document.getElementById('searchPanel').style.paddingBottom='0'" style="background:rgba(255,255,255,.4);border:1.5px solid rgba(42,26,8,.2);border-left:none;border-radius:0 var(--r) var(--r) 0;padding:0 16px;color:var(--navy);cursor:pointer;font-size:18px">✕</button>
     <button style="background:#fff;color:var(--navy);border:none;border-radius:var(--r);margin-left:8px;padding:0 22px;font-family:var(--pop);font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap">Search</button>
   </div>
@@ -3473,7 +3474,10 @@ footer   { padding-top: 72px; padding-bottom: 36px; }
 <div class="wedding reveal">
   <div class="wed-img">
     <div class="wed-img-overlay"></div>
-
+    <div class="wed-img-tag">
+      <div class="wit-title">WEDDING VENUE</div>
+      <div class="wit-val">Santorini, Greece</div>
+    </div>
   </div>
   <div class="wed-copy">
     <div class="s-kicker">Make Your Dreams</div>
